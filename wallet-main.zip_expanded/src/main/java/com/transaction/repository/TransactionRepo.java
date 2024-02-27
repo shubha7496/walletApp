@@ -11,5 +11,4 @@ public interface TransactionRepo extends MongoRepository<Transaction, String> {
 	List<Transaction>findBytransactionid(String transactionid);
 
 
-	List<Transaction> findBywalletid(String walletid);
 }

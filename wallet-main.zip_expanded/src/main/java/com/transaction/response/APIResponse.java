@@ -2,8 +2,6 @@ package com.transaction.response;
 
 import org.springframework.http.HttpStatus;
 
-import com.transaction.entity.Transaction;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

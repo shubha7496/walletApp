@@ -16,4 +16,3 @@ public enum TransactionType {
         return displayName;
     }
 }
-

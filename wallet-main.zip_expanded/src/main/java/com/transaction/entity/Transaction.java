@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,11 +28,32 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-@Document(collection = "Transaction")
+@Data
+@Document(collection = "transaction")
 public class Transaction {
 	
 	@Id
 	private String transactionid;
+	
+	private String walletid;
+	
+	@CreatedDate
+	private LocalDateTime transactiondate;
+	
+	@NotNull(message = "amount cant be null")
+	@Min(1)
+	private BigDecimal amount;
+	
+	private String description;
+	
+
+    private String senderWalletId;
+    
+    private String receiverWalletId;
+    
+    private String currency;
+    
+
 	
 	private TransactionType type;
 	
@@ -40,20 +62,20 @@ public class Transaction {
     private ServiceType serviceType;
 
 	 private String Referenceno;
-	 
-	private String walletid;
-	
-	@CreatedDate
-	private LocalDateTime transactiondate;
-	
+
+
     @LastModifiedDate
 	private Date updatedDate;
+
+	 private String mobile;
+	 
+
 	
-	@NotNull(message = "amount cant be null")
-	@Min(1)
-	private BigDecimal amount;
+
 	
-	private String description;
+	
+
+	
 	
 //	@DBRef
 //	private Wallet wallet;
